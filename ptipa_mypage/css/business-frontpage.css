@@ -40,7 +40,7 @@ body {
 
 .business-header {
     height: 400px;
-    background: url('/img/background/3.jpg');
+    background-image: url(/img/background/3.jpg);
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;

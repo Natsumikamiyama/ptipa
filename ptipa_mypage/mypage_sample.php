@@ -78,14 +78,11 @@ foreach ($a as $key => $value){
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Start Bootstrap</a>
+                <a class="navbar-brand" href="mypage_sample.php">ptipa</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav pull-right">
-                    <li>
-                        <a href="#" class="icon-bar">About</a>
-                    </li>
                     <li>
                             <form action="../loginform/logout.php" method="GET">
                             <button type="submit" class="icon-bar btn btn-primary">Logout</button>
@@ -100,7 +97,7 @@ foreach ($a as $key => $value){
 
     <!-- Image Background Page Header -->
     <!-- Note: The background image is set within the business-casual.css file. -->
-    <header class="business-header">
+    <header class="business-header" img src="<?php echo $value["cover_pic"];?>" >
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -121,77 +118,28 @@ foreach ($a as $key => $value){
             <!--ここがタブ-->
             <ul style='list-style-type:none;' class="tab">
                 <li><a href="#tab1">Profile</a></li>
-                <li><a href="#tab2">Follow MyList</a></li>
-                <li><a href="#tab3">Chatboard</a></li>
-                <li><a href="#tab4">Video MyList</a></li>
-                <li><a href="#tab5">Purchase "萌！"</a></li>
+                <li><a href="#tab4">Video List</a></li>
+                <li><a href="#tab5">Purchase "MOE！"</a></li>
             </ul>
             <div class="content">
                 <div class="area" id="tab1"> 
                 MY PROFILE
-                 <form action="submit" href="profile.html" value="編集"></form>
+                 <form action="submit" href="profile.html" value="Edit"></form>
                     <p> <?php echo $value["user_detail"] ?> </p>
                     <p><br></p>
+                    <?php echo "You have:".$value["moe"]."'MOE!' left." ?>
+                    <br>
                     <a href="../profile_update/profile_edit.php"><input type="submit" value="Edit Profile"></a>
                 </div>
-                <div class="area" id="tab2">
-                    
-                    <p>
 
-<!--ここからフレンドリスト表示-->
-
-<?php
-$my_folder="ptipa";
-$my_db ="ptipa_db";
-$my_pass="cosmo123";
-$my_url="mysql527.db.sakura.ne.jp";
-
-$connect = mysql_connect($my_url,$my_folder,$my_pass);
-
-mysql_query("SET NAMES utf8",$connect);
-
-$result = mysql_db_query( $my_db, 
-"SELECT user_id, cos_name, profile_pic FROM user_tbl RIGHT JOIN follower_test_tbl ON user_tbl.user_id = follower_test_tbl.from_id WHERE to_id=1" 
-);
-
-while(true){ //無限に繰り返せ
-    /*
-    $resultに対してmysql_fetch_assocを行うと
-    表の１番上の行のデータが$rowに
-    カット＆ペースト(Ctrl+Xやって、Ctrl+V)される
-    */
-    $row = mysql_fetch_assoc($result);
-
-    if($row == null){//$rowがnull(=空)なら終了
-        break;
-    }else{
-        /*
-        contentsのところには表示したい
-        カラム名を入力する
-        */
-        echo $row["cos_name"];
-        echo "<img src ='".$row["profile_pic"]."'>";
-        echo "<br>";
-    }
-
-}
-mysql_close($connect); 
-
-?>
-<!--ここまでフレンドリスト表示-->
-                   </p>
-                </div>
-                <div class="area" id="tab3">
-                    Tab3<br />Tab3<br />Tab3<br />Tab3<br />
-                </div>
                 <div class="area" id="tab4">
-<!--写真投稿フォーム-->
+<!--動画投稿フォーム-->
                 Video Upload
                 <form action="../pic/pic_post2.php" method="post" name="FormName" enctype="multipart/form-data">
                 <input type="file" name="upfile" value="Search" class="example">
                 <input type="submit" name="submit" value="Upload">
                 </form>
-<!--写真投稿フォーム-->
+<!--動画投稿フォーム-->
 
 <hr>
 
@@ -232,14 +180,19 @@ while(true){ //無限に繰り返せ
         contentsのところには表示したい
         カラム名を入力する
         */
-        echo "<video src ='".$row["pic_path"]."' controls>";
+        echo "<p name='picid'>PicID:".$row["pic_id"]."</p>";
+        echo "<video src ='".$row["pic_path"]."' controls></video>";
         echo "<br>";
+        echo "<a href='../moviepage/movie_page.php?id=".$row["pic_id"]."'>Video Page</a>";
+
         ?>
 
         <form action="../pic/pic_delete.php" method="GET">
         <input type="hidden" name="pic_id" value= '<?php echo $row["pic_id"]; ?>' >
         <input type="submit" value="Delete">
         </form>
+
+        <hr>
 
         <?php
          //1行表示したら改行を入れる。
@@ -261,22 +214,23 @@ mysql_close($connect);
                 <div class="area" id="tab5">
 <div id="form">
     <p class="form-title">Payment </p>
-     <form action="http://ptipa.sakura.ne.jp/payment/payform/buy_admin.php" method="post"> 
+     <form action="/payment/payform/buy_admin.php" method="post"> 
 
-    <p>How many "萌！"s do you want?</p>
+    <p>How many "MOE！"s do you want?</p>
         <select type="num" name="term">
-        <option value="100">100萌！ = €2.99</option>
-        <option value="300">300萌！ = €8.99</option>
-        <option value="500">500萌！ = €13.99</option>
-        <option value="1000">1000萌！ = €24.99</option>
-        <option value="1200">1200萌！ = €35.99</option>
+        <option value="100">100 MOE！ = €2.99</option>
+        <option value="300">300 MOE！ = €8.99</option>
+        <option value="500">500 MOE！ = €13.99</option>
+        <option value="1000">1000 MOE！ = €24.99</option>
+        <option value="1200">1200 MOE！ = €35.99</option>
         
         </select>
         <p>Pay with Credit Card</p>
         <input type="num" name="card_number">
         <input type="submit" value="Check-out">
-        <p>Pay with Paypal</p>
     </form>
+        <p>Pay with Paypal</p>
+    
         <input type="submit" value="Move to Paypal Page">
         
 </div>

@@ -36,8 +36,8 @@ else {
 
 
 echo $_SERVER;
-/*
-echo header ("Location:../ptipa_mypage/mypage_sample.php");
+
+echo header ("Location:/ptipa_mypage/mypage_sample.php");
 
 mysql_close($connect);
 

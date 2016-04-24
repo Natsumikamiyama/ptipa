@@ -10,7 +10,7 @@ if (!isset($_SESSION["user_id"])){
 <html lang="ja">
 <head>
     <meta charset="utf-8">
-    <title>formsample</title>
+    <title>ptipa Profile Edit</title>
     <link rel="stylesheet" type="text/css" href="profile.css" media="all" />
     <link rel="stylesheet" type="text/css" href="bootstrap.min.css" media="all" />
 　　<link rel="stylesheet" type="text/css" href="bootstrap.css" media="all" />
@@ -26,16 +26,13 @@ if (!isset($_SESSION["user_id"])){
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">PTIPA</a>
+                <a class="navbar-brand" href="../ptipa_mypage/mypage_sample.php">PTIPA</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav pull-right">
                     <li>
                         <a href="../ptipa_mypage/mypage_sample.php">MY PAGE</a>
-                    </li>
-                    <li>
-                        <a href="#">EVENT</a>
                     </li>
                 </ul>
             </div>

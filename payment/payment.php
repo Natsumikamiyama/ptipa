@@ -12,7 +12,20 @@ session_start();
 	$card_number=$_POST["card_number"];
 	$user_id= $_SESSION["user_id"];
 
-$buy_user_moe="insert into payment_tbl (user_id,card_number) VALUES ($user_id,$card_number) ";
+	if ($term==100){$cost="2.99";
+
+	}else if ($term == 300) {$cost="8.99";
+		# code...
+	}elseif ($term == 500) {$cost="13.99";
+		# code...
+	}elseif ($term ==1000) {$cost="29.99";
+		# code...
+	}elseif ($term ==1200) {$cost="35.99";
+		# code...
+	}
+
+
+$buy_user_moe="insert into payment_tbl (user_id,card_number,paid) VALUES ($user_id,$card_number,$cost) ";
 mysql_db_query($my_db, $buy_user_moe);
 
 $customer_getmoe="select moe from user_tbl where user_id=$user_id";
@@ -23,13 +36,11 @@ $customer_get_moe=$term+$result_moe["moe"];
 $update_user_moe="update user_tbl set moe=$customer_get_moe where user_id=$user_id";
 $update=mysql_db_query($my_db, $update_user_moe);
 
-	var_dump($term);
-	var_dump($user_id);
-	var_dump($card_number);
 
 	/*mysql_db_query($my_folder, "INSERT INTO payment_tbl (user_id, payment_flg, payment_date, card_number)
 		VALUES ($_SESSION["user_id"], 1, sysdate(),'$card_number')"
 		);
 */
+header("location:/ptipa_mypage/mypage_sample.php");
 
  ?>
