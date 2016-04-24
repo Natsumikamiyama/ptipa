@@ -1,0 +1,232 @@
+/*!
+ * Start Bootstrap - Business Frontpage HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+body {
+    padding-top: 50px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+}
+
+/* Header Image Background - Change the URL below to your image path (example: ../images/background.jpg) */
+
+.btn {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  margin-top: 9px;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.navbar-inverse {
+  background-color: #f05f40;
+  border-color: #f05f40;
+}
+
+.business-header {
+    height: 400px;
+    background: url('/img/background/3.jpg');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+.tab, .tab li, .tab li a {/*クリックするタブ部分*/
+    float: left;
+    padding:3px;
+    margin-right:2px;
+}
+
+.content {/*切り替わる部分を囲うボックス*/
+    clear: both;
+    overflow: hidden;
+    width: ;
+    border:1px solid #eee;
+    height:auto;
+}
+
+
+
+.caption {
+    height: 130px;
+    overflow: hidden;
+}
+
+.caption h4 {
+    white-space: nowrap;
+}
+
+.thumbnail img {
+    width: 100%;
+}
+
+.ratings {
+    padding-right: 10px;
+    padding-left: 10px;
+    color: #d17581;
+}
+
+.area {/*切り替わる部分はまず全部消しておく*/
+    display: none;
+    height:;
+    word-wrap: break-word;
+}
+
+.img-responsive,
+.thumbnail > img,
+.thumbnail a > img,
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border: 3px solid white;
+}
+
+.tab li.active {/*選択中のタブ。色を変える等*/
+    background: #eee;
+}
+
+.tab li.active a{/*選択中のタブのリンクカラー*/
+    color:red;
+}
+
+.pull-right {
+  float: right !important;
+}
+
+.center {
+  float: center;
+}
+
+/* Customize the text color and shadow color and to optimize text legibility. */
+
+.tagline {
+    text-shadow: 0 0 10px #000;
+    color: #fff;
+}
+
+
+.img-center {
+    height: 300px;
+    width: 300px;
+    position:relative;
+}
+
+/*payment-formのcss*/
+/* layout */
+body,p,form,input{margin: 0}
+#form{
+  width: 400px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #555;
+  }
+
+form p{
+    font-size: 14px;
+    }
+
+.form-title{
+  text-align: center;
+  }
+
+.mail,.pass{
+  margin-bottom: 20px;
+  }
+
+input[type="mail"],
+input[type="password"],
+input[type="phone"],
+input[type="HN"],
+input[type="name"],
+input[type="phone"],
+
+ {
+  width: 500px;
+  padding: 4px;
+  font-size: 14px;
+  }
+    
+.submit{
+  text-align: right;
+  }
+
+/* font */
+#form p{
+  color: #A26B23;
+  font-weight: bold;
+  }
+
+#form .form-title{
+  font-family: Arial;
+  font-size: 30px;
+  color: #A26B23;
+  }
+
+/* skin */
+#form{
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  -webkit-box-shadow: 0px 1px 10px #488a9e;
+  -moz-box-shadow: 0px 1px 10px #488a9e;
+  box-shadow: 0px 1px 10px #deb887;
+  border: solid #deb887 1px;
+  background: #fafafa;
+  width:450px;
+  }
+
+#form .form-title{
+  padding-bottom: 6px;
+  border-bottom: 2px solid #A26B23;
+  margin-bottom: 20px;
+  ]
+
+  .submit input{
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 16px;
+  padding-top: 10px;
+  padding-right: 20px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  text-decoration: none;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 8px 6px #e3e3e3;
+  -moz-box-shadow: 0px 8px 6px #e3e3e3;
+  box-shadow: 0px 8px 6px #e3e3e3;
+  border: solid #f5fdff 4px;
+  background: -webkit-gradient(linear, 0 0, 0 100%, from(#61c7e0), to(#418da8));
+  background: -moz-linear-gradient(top, #61c7e0, #418da8);
+  }
+.submit input:hover{
+  background: #37a4bf;
+ }
+
+.sei_0 {
+  font-color:;
+}
+
+
+footer {
+    margin: 50px 0;
+}

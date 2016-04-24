@@ -1,0 +1,17 @@
+SELECT
+  follower_test_tbl.to_id, follower_test_tbl.from_id
+FROM follower_test_tbl
+  INNER JOIN follow_test_tbl
+    ON follower_test_tbl.to_id = follow_test_tbl.from_id AND follower_test_tbl.from_id = follow_test_tbl.to_id;
+
+    SELECT follower_test_tbl.from_id, follower_test_tbl.to_id
+  FROM follow_test_tbl, follower_test_tbl
+    WHERE
+      follow_test_tbl.to_id = follower_test_tbl.from_id 
+    AND
+      follower_test_tbl.to_id = follow_test_tbl.from_id;
+
+
+
+acceptすると
+(user_id, follower_id, accept=1)が自動挿入されるようにする
