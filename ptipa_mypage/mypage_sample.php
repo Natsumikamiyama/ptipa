@@ -58,6 +58,13 @@ while ($row = mysql_fetch_assoc($result)) {
     $a[]=$row;
 
 }
+//記事の取得
+$user_id=$_SESSION["user_id"];
+$contents_sql="select subject,contents_id from contents_tbl WHERE user_id = $user_id";
+$contents_query=mysql_db_query($my_db,$contents_sql);
+
+
+
 
 foreach ($a as $key => $value){
 ?>
@@ -78,7 +85,7 @@ foreach ($a as $key => $value){
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="mypage_sample.php">ptipa</a>
+                <b><a class="navbar-brand" href="mypage_sample.php">Ptipa</a></b>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -86,8 +93,7 @@ foreach ($a as $key => $value){
                     <li>
                             <form action="../loginform/logout.php" method="GET">
                             <button type="submit" class="icon-bar btn btn-primary">Logout</button>
-                            </form>
-                    </li>
+                    </form></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -101,7 +107,7 @@ foreach ($a as $key => $value){
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="tagline"><?php echo $value["cos_name"] ?></h1>
+                    <h1 class="tagline"><?php echo $value["cos_name"]; ?></h1>
                         <img class="img-circle img-responsive img-center pull-left" src=" <?php echo $value["profile_pic"]; ?>" >
                 </div>
             </div>
@@ -117,17 +123,21 @@ foreach ($a as $key => $value){
 
             <!--ここがタブ-->
             <ul style='list-style-type:none;' class="tab">
-                <li><a href="#tab1">Profile</a></li>
-                <li><a href="#tab4">Video List</a></li>
-                <li><a href="#tab5">Purchase "MOE！"</a></li>
+                <li><a href="#tab1"><img src="img/font/1.png"></a></li>
+                <li><a href="#tab4"><img src="img/font/2.png"></a></li>
+                <li><a href="#tab3"><img src="img/font/3.png"></a></li>
+                <li><a href="#tab5"><img src="img/font/4.png"></a></li>
             </ul>
             <div class="content">
                 <div class="area" id="tab1"> 
                 MY PROFILE
                  <form action="submit" href="profile.html" value="Edit"></form>
-                    <p> <?php echo $value["user_detail"] ?> </p>
+                    <p> <?php echo $value["user_detail"]; ?> </p>
                     <p><br></p>
-                    <?php echo "You have:".$value["moe"]."'MOE!' left." ?>
+                    <p>My Favorites</p>
+                    <p><?php echo $value["favorites"]; ?></p>
+                    <p><br></p>
+                    <?php echo "You have:".$value["moe"]."'MOE!' left."; ?>
                     <br>
                     <a href="../profile_update/profile_edit.php"><input type="submit" value="Edit Profile"></a>
                 </div>
@@ -143,7 +153,19 @@ foreach ($a as $key => $value){
 
 <hr>
 
-<!--ここから画像一覧。ユーザーIDに紐づいて表示させたい-->
+<!--動画検索フォーム-->
+
+<form method="POST" action="search_keywards.php" class="search">
+
+<div>
+<input type="text" name="example" class="textBox">
+<input type="submit" value="検索" class="btn">
+</div> 
+</form>
+
+<!--動画検索フォーム-->
+
+<!--ここから動画一覧。ユーザーIDに紐づいて表示させたい-->
 <div class="thumbnail">
                     <?php
 $my_folder="ptipa";
@@ -200,14 +222,30 @@ while(true){ //無限に繰り返せ
     }
 }
 
-
+}
 mysql_close($connect); 
+
 
 ?>
 </div>
 
-<!--ここまで画像一覧。ユーザーIDに紐づいて表示させたい-->
+<!--ここまで動画一覧。ユーザーIDに紐づいて表示させたい-->
 <!--ここからイベント一覧。ユーザーIDに紐づいて表示させたい-->
+
+                </div>
+
+                <div class="area" id="tab3">
+                <?php 
+                while ($contents_result= mysql_fetch_assoc($contents_query)) {
+
+
+                ?>
+
+                <a href='http://ptipa.sakura.ne.jp/kizi/post.php?id=<?php echo $contents_result["contents_id"];?>'>
+                    <?php echo $contents_result["subject"];?>
+
+                </a><br>
+                <?php }?>
 
                 </div>
 
@@ -235,27 +273,18 @@ mysql_close($connect);
         
 </div>
                 </div>
- <!--ここまでイベント一覧。ユーザーIDに紐づいて表示させたい-->       
-
+ <!--ここまでイベント一覧。ユーザーIDに紐づいて表示させたい-->
 
         <!-- /.row -->
 
         <hr>
 
         <!-- Footer -->
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2016</p>
-                </div>
-            </div>
-            <!-- /.row -->
-        </footer>
 
     </div>
    
     <!-- /.container -->
-<?php } ?>
+
 
 
     <!-- jQuery -->

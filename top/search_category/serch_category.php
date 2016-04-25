@@ -20,7 +20,7 @@ if (isset($_POST["category"])) {
 
 	$in_category=$_POST["category"];
 
-	$get_information="select moe,pic_detail,pic_path,pic_date,pic_id,title from  pic_tbl where category='$in_category'";
+	$get_information="select moe,pic_detail,pic_path,pic_date,pic_id,title from pic_tbl where category='$in_category'";
 
 	$movie_information_set= mysql_db_query($my_db, $get_information);
 
@@ -39,17 +39,22 @@ while ($movie_information= mysql_fetch_assoc($movie_information_set)) {
 	# code...
 }
 
-	$get_movie="select moe,category from pic_tbl where category="
+	$get_movie="SELECT moe,category from pic_tbl where category = "
 
 ?>
 
 
 <body>
 
-<form action="#" method="post">
+<form action="search_category.php" method="post">
 <p>movie's category：<br>
 
 <select name="category">
+<option value="Event">Event</option>
+<option value="Report">Report</option>
+<option value="Cosplay">Cosplay</option>
+<option value="Anime">Anime</option>
+</select>
 
 <?php
     while ($search_result=mysql_fetch_assoc($dbQuery)) {
@@ -68,30 +73,6 @@ while ($movie_information= mysql_fetch_assoc($movie_information_set)) {
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

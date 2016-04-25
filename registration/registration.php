@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php
+session_start();
+var_dump($_SESSION["error"]);
+?>
 <html lang="ja">
 <head>
     <meta charset="utf-8">
@@ -33,6 +37,14 @@
         <!-- /.container -->
     </nav>
 <div id="form">
+    <?php foreach ($_SESSION["error"] as $key => $value){ ?>
+    <div style= "color:red">
+    <?php echo $value;
+    ?> 
+    </div>
+    <?php }
+    unset($_SESSION["error"]);
+    ?>
     <p class="form-title">New User Registration</p>
     <form action="register.php" method="GET" enctype="multipart/form-data">
         <p>Handle-name</p>

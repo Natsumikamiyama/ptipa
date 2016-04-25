@@ -21,12 +21,71 @@ $email=$_GET["mail"];
 $password=$_GET["password"];
 $sei=$_GET["sei"];
 $birthday=$_GET["birthday"];
+session_start();
+$_SESSION["error"]= array();
+
+foreach ($_GET as $key => $value) {
+    # code...
+    echo $value;
+    $alart_error="";
+    if (empty($value)) {
+        switch ($key) {
+            case 'HN':
+            $alart_error="please,enter hundle name.";
+                 # code...
+                 break;
+            case 'name':
+            $alart_error="please,enter your name.";
+                 # code...
+                 break;
+            case 'birthday':
+            $alart_error="please,enter your birthday.";
+                 # code...
+                 break;
+            case 'phone':
+            $alart_error="please,enter your phone number.";
+                 # code...
+                 break;
+            case 'address':
+            $alart_error="please,enter your adress.";
+
+                 # code...
+                 break;
+            case 'mail':
+            $alart_error="please,enter your mail adress.";
+
+                 # code...
+                 break;
+
+            case 'password':
+            $alart_error="please,set passwprd.";
+                 # code...
+                 break;   
+
+
+             default:
+                 # code...
+                 break;
+         }
+         $_SESSION["error"][$key]=$alart_error; 
+        # code...
+    }
+}
+if (!empty($_SESSION["error"])) {
+
+    header("location:/registration/registration.php");
+exit;
+    # code...
+}
+
 
 $result = mysql_db_query( $my_db, 
-"INSERT INTO user_tbl (cos_name, name, sex, email, password, tel, birth_day)
+"INSERT INTO user_tbl (cos_name, name, user_type, email, password, tel, birth_day)
 VALUES ('$HN','$name','$sei','$email','$password','$phone','$birthday')"
 	);
-
+while ($result == null) {
+     # code...
+    echo "please,try again.";}
 //mysql_close($connect);
 
 ?>
@@ -60,17 +119,15 @@ mysql_close($connect);
 */
 
 
-echo $_SERVER;
 
 $result = mysql_db_query( $my_db, 
 "SELECT * FROM user_tbl WHERE email = '$email' and password = '$password'");
 
 $row = mysql_fetch_assoc($result);
 
-session_start();
 $_SESSION["user_id"]=$row["user_id"];
 
-header("location:/mypage_sample.php");
+header("location:/ptipa_mypage/mypage_sample.php");
 
 var_dump($_SESSION);
 

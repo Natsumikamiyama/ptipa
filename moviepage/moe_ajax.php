@@ -22,6 +22,13 @@ $moe= $now_moe_result["moe"]+1;
 $sql = mysql_db_query ($my_db, "UPDATE pic_tbl SET moe=$moe where pic_id=$pic_id");
 /* 最新のクリック数を問登録 end*/
 
+
+/* $moe_add = mysql_db_query($my_db, "SELECT SUM moe AS user_id, moe FROM pic_tbl GROUP BY user_id"); */
+/* $mysql_db_query($my_db, $moe_total);
+/* $moe_total =  mysql_db_query($my_db, "UPDATE moe SET moe=total FROM pic_tbl GROUP BY user_id"); */
+
+
+
 /* 最新のクリック数を取得 start */
 $select_sql="select moe from pic_tbl where pic_id = $pic_id";
 $now_moe_after=mysql_fetch_assoc(mysql_db_query($my_db, $select_sql));

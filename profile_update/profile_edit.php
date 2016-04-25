@@ -10,7 +10,7 @@ if (!isset($_SESSION["user_id"])){
 <html lang="ja">
 <head>
     <meta charset="utf-8">
-    <title>ptipa Profile Edit</title>
+    <title>Ptipa Profile Edit</title>
     <link rel="stylesheet" type="text/css" href="profile.css" media="all" />
     <link rel="stylesheet" type="text/css" href="bootstrap.min.css" media="all" />
 　　<link rel="stylesheet" type="text/css" href="bootstrap.css" media="all" />

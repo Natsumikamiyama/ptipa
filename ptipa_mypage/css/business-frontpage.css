@@ -6,6 +6,7 @@
 
 body {
     padding-top: 50px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    margin-bottom: 50px;
 }
 
 /* Header Image Background - Change the URL below to your image path (example: ../images/background.jpg) */
@@ -57,8 +58,9 @@ body {
     clear: both;
     overflow: hidden;
     width: ;
-    border:1px solid #eee;
+    border:2px solid #eee;
     height:auto;
+    padding-top: 20px;
 }
 
 
@@ -100,11 +102,11 @@ body {
 }
 
 .tab li.active {/*選択中のタブ。色を変える等*/
-    background: #eee;
+    background: #fff;
 }
 
 .tab li.active a{/*選択中のタブのリンクカラー*/
-    color:red;
+    color:#f05f40;
 }
 
 .pull-right {
@@ -131,10 +133,9 @@ body {
 
 /*payment-formのcss*/
 /* layout */
-body,p,form,input{margin: 0}
+body,p,form,input{margin: 60}
 #form{
   width: 400px;
-  margin: auto;
   padding: 20px;
   border: 1px solid #555;
   }
@@ -224,9 +225,4 @@ input[type="phone"],
 
 .sei_0 {
   font-color:;
-}
-
-
-footer {
-    margin: 50px 0;
 }

@@ -62,8 +62,11 @@ if (!isset($_SESSION["user_id"])){
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
+                    
                     <li>
-                        <a href="../ptipa_mypage/mypage_sample.php">MY PAGE</a>
+                        <a href="../ptipa_mypage/mypage_sample.php" class="navbar-brand page-scroll"><img src="img/font/2.png"></a>
+                    </li>
+
                     </li>
                     
                 </ul>
@@ -128,7 +131,7 @@ mysql_close($connect);
         <div class="container text-center">
             <div id="contents_sample_wrap">
         <p class="text_box">Click MOE! to support them!!</p>
-                <input type="button" name"moe" value="MOE!" class="btn btn-default btn-xl wow tada">
+                <input type="button" name"moe" value="MOE♥" class="btn btn-default btn-xl wow tada">
             </div>
                  <h2>Wanna Support them?<br>Send more "MOE!" for them!</h2>
                  <p>Purchase "MOE!" from your <a href="../ptipa_mypage/mypage_sample.php">User Page</a></p>
@@ -206,12 +209,9 @@ MOE! Limit:<?php echo $get_user_id["moe"];?><br>
 
 <?php
 
-mysql_db_query($my_db, "UPDATE pic_tbl SET moe ='".$_GET["click_count"]."' WHERE pic_id = '".$id."'"
-);
-
 }
 
-mysql_close($connect); 
+
 
 
 ?>

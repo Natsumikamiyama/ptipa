@@ -12,6 +12,14 @@ video {
   z-index: 2;
 }
 
+.fit {
+    width: 100%;
+}
+
+.normal {
+    color: black;
+}
+
 html,
 body {
     width: 100%;
@@ -256,8 +264,7 @@ header {
     width: 100%;
     min-height: auto;
     text-align: center;
-    color: #fff;
-    background-image: url(../img/header.jpg);
+    background-color: #000000;
     background-position: center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -292,7 +299,7 @@ header .header-content .header-content-inner p {
 
 @media(min-width:768px) {
     header {
-        min-height: 60%;
+        min-height: 75%;
     }
 
     header .header-content {
